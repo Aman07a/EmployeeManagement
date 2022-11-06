@@ -28,6 +28,26 @@ namespace EmployeeManagement
                 employeesDictionary.Add(emp.Role, emp);
             }
 
+            // Update
+            string KeyToUpdate = "HR";
+            if (employeesDictionary.ContainsKey(KeyToUpdate))
+            {
+                employeesDictionary[KeyToUpdate] = new Employee("HR", "Eleka", 26, 18);
+                Console.WriteLine("Employee with Role/Key {0} was updated!", KeyToUpdate);
+            }
+            else
+            {
+                // if not, print an error message
+                Console.WriteLine("No Employee found with this Key {0}", KeyToUpdate);
+            }
+
+            // Remove
+            string KeyToRemove = "Intern";
+            if (employeesDictionary.Remove(KeyToRemove))
+            {
+                Console.WriteLine("Employee with Role/Key {0} was removed!", KeyToRemove);
+            }
+
             for (int i = 0; i < employeesDictionary.Count; i++)
             {
                 // Using ElementAt(i) to return the key-value pair stored at index i
